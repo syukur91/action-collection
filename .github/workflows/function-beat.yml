@@ -16,3 +16,8 @@ jobs:
       continue-on-error: true
       run: ./functionbeat -v -e -d "*" deploy miyazaki-stag-cloudwatch
       working-directory: functionbeat
+
+    - name: List the file 
+      continue-on-error: true
+      run: ls -al
+      working-directory: functionbeat
