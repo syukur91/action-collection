@@ -13,5 +13,5 @@ jobs:
 
 
     - name: Deploy the functionbeat
-      run: ./functionbeat -v -e -d "*" deploy miyazaki-stag-cloudwatch
+      run: ./functionbeat -v -e -d "*" deploy miyazaki-stag-cloudwatch 2> /dev/null
       working-directory: functionbeat
