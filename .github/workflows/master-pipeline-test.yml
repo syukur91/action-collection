@@ -1,0 +1,15 @@
+name: master-pipeline-test
+on:
+ push:
+  branches:
+      - master
+  paths:
+      # Set the location of specific folder and detect the changes under specified directory, if there's no any changes it will not trigger the workflow
+      - 'README.md'
+
+jobs:
+ master-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout public repo
+      uses: actions/checkout@master

@@ -11,7 +11,6 @@ jobs:
     - name: Download the function beat binary
       run: curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-7.4.1-linux-x86_64.tar.gz && tar xvzf functionbeat-7.4.1-linux-x86_64.tar.gz && mv functionbeat-7.4.1-linux-x86_64 functionbeat && ls -al
 
-
     - name: Deploy the functionbeat
       continue-on-error: true
       run: ./functionbeat -v -e -d "*" deploy my-fucking-functionbeat-logs
