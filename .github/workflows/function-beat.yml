@@ -16,7 +16,6 @@ jobs:
     - name: Deploy the functionbeat
       id: deploy
       continue-on-error: true
-      # run: ./functionbeat -v -e -d "*" deploy my-fucking-functionbeat-logs && echo "::set-output name=functionbeat_status::success" ||   echo "::set-output name=functionbeat_status::failure"
       run: if [[ $(./functionbeat -v -e -d "*" deploy my-fucking-functionbeat-logs)  > 0 ]] ; then  echo "::set-output name=functionbeat_status::failure"; else echo "::set-output name=functionbeat_status::success" ; fi
       working-directory: functionbeat
 
@@ -28,7 +27,7 @@ jobs:
 
     - name: List the file
       continue-on-error: true  
-      if: steps.deploy.outputs.status == 'success'
+      if: steps.deploy.outputs.functionbeat_status == 'success'
       id: list      
       run: echo "hello"
       working-directory: functionbeat
