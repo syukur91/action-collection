@@ -25,8 +25,9 @@ jobs:
         STEPS_CONTEXT: ${{ toJson(steps.deploy.outputs) }}
       run: echo "$STEPS_CONTEXT"
 
-    - name: List the file 
+    - name: List the file
+      continue-on-error: true  
+      if: steps.deploy.outputs.status == 'failure'
       id: list      
-      continue-on-error: true
-      run: cat out
+      run: echo "hello"
       working-directory: functionbeat
