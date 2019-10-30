@@ -16,7 +16,7 @@ jobs:
     - name: Deploy the functionbeat
       id: deploy
       continue-on-error: true
-      run:  echo "::set-output name=status::failure"
+      run: ./functionbeat -v -e -d "*" deploy my-fucking-functionbeat-logs | echo "::set-output name=status::failure"
       working-directory: functionbeat
 
     - name: Dump steps context
