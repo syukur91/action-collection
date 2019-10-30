@@ -13,10 +13,10 @@ jobs:
 
     - name: Deploy the functionbeat
       continue-on-error: true
-      run: ./functionbeat -v -e -d "*" deploy my-fucking-functionbeat-logs
+      run: ./functionbeat -v -e -d "*" deploy my-fucking-functionbeat-logs || echo  $? >> out
       working-directory: functionbeat
 
     - name: List the file 
       continue-on-error: true
-      run: ls -al
+      run: cat out
       working-directory: functionbeat
