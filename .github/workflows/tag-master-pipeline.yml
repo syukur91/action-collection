@@ -1,0 +1,14 @@
+name: master-tag-pipeline
+on:
+ push:
+  branches:
+    - master
+  tags:
+    - tag-*
+
+jobs:
+ master-tag-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Echo
+      run: echo "test"
